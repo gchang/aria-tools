@@ -534,6 +534,9 @@ class Downloader:
                         time.sleep(retry_delay)
                         continue
 
+                    LOGGER.debug('HTTPS download: %s', filepath)
+                    return filepath
+
                 except RequestException as e:
                     LOGGER.error("Error downloading %s: %s",
                                  url, e)
