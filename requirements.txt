@@ -1,0 +1,33 @@
+affine
+arm_pyart
+asf_search >=12.0.3
+asf_enumeration >=0.4.0
+boto3               # optional: S3 direct download when running on AWS
+dask
+dem_stitcher>=2.5.8
+gdal>=3.7.0
+h5py
+joblib
+libgdal-hdf5
+libgdal-netcdf
+matplotlib
+netcdf4
+numpy
+pandas
+parallel
+pip
+pyproj
+pytest
+#python>=3.8,<3.14
+python-dateutil
+rasterio
+rioxarray
+requests
+scipy>1.10.0
+shapely
+tile_mate>=0.0.12
+xarray
+hyp3_sdk>=7.7.6    # dependencies for ariaOrderASF --orderpairs / --statusjobs mode
+## notebook dependencies, keep commented out for better compatibility with other codes
+#jupyterlab
+#jupyter_contrib_nbextensions
