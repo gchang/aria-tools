@@ -268,14 +268,25 @@ class Downloader:
         urls, ifgs, is_nisar_file = get_url_ifg(scenes)
 
         # Subset everything by version
+        original_urls = urls.copy()
+
         if is_nisar_file and self.args.version is not None:
             raise Exception(
                 'Version support not included for NISAR, remove the critera'
             )
         else:
-            urls = url_versions(urls, self.args.version, self.args.wd)
-        scenes = [scene for scene, url in zip(scenes, urls) if url in urls]
-        ifgs = [ifg for ifg, url in zip(ifgs, urls) if url in urls]
+            valid_urls = set(
+                url_versions(original_urls, self.args.version, self.args.wd)
+            )
+
+        scenes = [
+            scene for scene, url in zip(scenes, original_urls)
+            if url in valid_urls
+        ]
+        ifgs = [
+            ifg for ifg, url in zip(ifgs, original_urls) if url in valid_urls
+        ]
+        urls = [url for url in original_urls if url in valid_urls]
 
         # Filter scenes based on date and elapsed time criteria
         scenes, urls, ifgs = self.filter_scenes(
