@@ -332,9 +332,7 @@ class Downloader:
 
         if self.args.mission.upper() == "S1":
             return asf_search.geo_search(
-                collections=["C2859376221-ASF", "C1261881077-ASF"],
                 dataset=asf_search.constants.ARIA_S1_GUNW,
-                processingLevel=asf_search.constants.GUNW_STD,
                 relativeOrbit=tracks,
                 flightDirection=flight_direction,
                 intersectsWith=bbox_wkt,
