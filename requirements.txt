@@ -11,6 +11,7 @@ joblib
 libgdal-hdf5
 libgdal-netcdf
 matplotlib
+mintpy             # tests/test.sh: prep_aria.py loads the ariaTSsetup.py stack
 netcdf4
 numpy
 pandas
